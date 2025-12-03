@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting Algorithms Demo - Enhanced</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sorting Algorithms Interactive Demo</h1>
+  </header>
+
+  <div id="container">
+    <div id="controls">
+      <div class="controlGroup">
+        <button id="generate">Generate Array</button>
+        <button id="run">Run All Sorts</button>
+        <button id="pause">Pause</button>
+        <button id="resume">Resume</button>
+        <button id="reset">Reset</button>
+      </div>
+
+      <div class="controlGroup">
+        <label for="speed">Speed:</label>
+        <input type="range" id="speed" min="10" max="500" value="80" step="10">
+        <span id="speedVal">80ms</span>
+      </div>
+
+      <div class="controlGroup">
+        <label for="arraySize">Array Size:</label>
+        <select id="arraySize">
+          <option value="10">10</option>
+          <option value="20" selected>20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+
+      <div class="controlGroup">
+        <label for="stepMode">
+          <input type="checkbox" id="stepMode"> Step Mode
+        </label>
+        <button id="nextStep" disabled>Next Step</button>
+      </div>
+    </div>
+    <div id="compare">
+
+      <!-- Bubble Sort -->
+      <div class="algoCol">
+        <h2>Bubble Sort</h2>
+        <div class="complexity">Time: O(n²)</div>
+        <div class="stats">
+          <span class="stat">Comparisons: <span id="comp_bubble">0</span></span>
+          <span class="stat">Swaps: <span id="swap_bubble">0</span></span>
+          <span class="stat">Time: <span id="time_bubble">0ms</span></span>
+        </div>
+        <div id="array_bubble" class="arrayBox"></div>
+        <div id="status_bubble" class="status"></div>
+        <div class="swapBox">
+          <h3>Recent Swaps</h3>
+          <table>
+            <thead><tr><th>#</th><th>Index A</th><th>Index B</th></tr></thead>
+            <tbody id="log_bubble"></tbody>
+          </table>
+        </div>
+        <h4>bubble sort uses nested loops to compare adjacent pairs repeatedly until the array is sorted. Even in the best case, it may scan the array many times, giving a worst-case and average-case time of O(n²).</h4>
+      </div>
+
+      <!-- Selection Sort -->
+      <div class="algoCol">
+        <h2>Selection Sort</h2>
+        <div class="complexity">Time: O(n²)</div>
+        <div class="stats">
+          <span class="stat">Comparisons: <span id="comp_selection">0</span></span>
+          <span class="stat">Swaps: <span id="swap_selection">0</span></span>
+          <span class="stat">Time: <span id="time_selection">0ms</span></span>
+        </div>
+        <div id="array_selection" class="arrayBox"></div>
+        <div id="status_selection" class="status"></div>
+        <div class="swapBox">
+          <h3>Recent Swaps</h3>
+          <table>
+            <thead><tr><th>#</th><th>Index A</th><th>Index B</th></tr></thead>
+            <tbody id="log_selection"></tbody>
+          </table>
+        </div>
+        <h4>Selection Sort scans the entire unsorted portion of the array each pass to find the minimum element. This requires a nested loop that always performs roughly n² comparisons, giving O(n²) time.</h4>
+      </div>
+
+      <!-- Insertion Sort -->
+      <div class="algoCol">
+        <h2>Insertion Sort</h2>
+        <div class="complexity">Time: O(n²)</div>
+        <div class="stats">
+          <span class="stat">Comparisons: <span id="comp_insertion">0</span></span>
+          <span class="stat">Swaps: <span id="swap_insertion">0</span></span>
+          <span class="stat">Time: <span id="time_insertion">0ms</span></span>
+        </div>
+        <div id="array_insertion" class="arrayBox"></div>
+        <div id="status_insertion" class="status"></div>
+        <div class="swapBox">
+          <h3>Recent Swaps</h3>
+          <table>
+            <thead><tr><th>#</th><th>Index A</th><th>Index B</th></tr></thead>
+            <tbody id="log_insertion"></tbody>
+          </table>
+        </div>
+        <h4>Insertion Sort builds a sorted portion of the array by shifting elements as needed. In the worst and average cases, each new element might have to shift through the whole sorted side, creating n² total operations, so the time is O(n²).</h4>
+      </div>
+
+      <!-- Merge Sort -->
+      <div class="algoCol">
+        <h2>Merge Sort</h2>
+        <div class="complexity">Time: O(n log n)</div>
+        <div class="stats">
+          <span class="stat">Comparisons: <span id="comp_merge">0</span></span>
+          <span class="stat">Swaps: <span id="swap_merge">0</span></span>
+          <span class="stat">Time: <span id="time_merge">0ms</span></span>
+        </div>
+        <div id="array_merge" class="arrayBox"></div>
+        <div id="status_merge" class="status"></div>
+        <div class="swapBox">
+          <h3>Recent Operations</h3>
+          <table>
+            <thead><tr><th>#</th><th>Operation</th></tr></thead>
+            <tbody id="log_merge"></tbody>
+          </table>
+        </div>
+        <h4>Merge Sort divides the array in half repeatedly, then merges the halves while comparing elements. The divide phase takes log n, and each level processes all n elements during the merge, giving O(n log n) time.</h4>
+      </div>
+    </div>
+    
+<script src="script.js"></script>
+  </div>
+</body>
+</html>
